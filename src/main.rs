@@ -1,11 +1,11 @@
 #[macro_use] extern crate rocket;
 
-mod router;
-use router::routes::foo;
+mod routes;
+use routes::auth::login;
+use routes::auth::logout;
 
 #[launch]
-fn rocket() -> _ {
+fn init() -> _ {
     rocket::build()
-        .mount("/", routes![foo])
-        // .mount("/", routes![delay])
+        .mount("/", routes![login, logout])
 }

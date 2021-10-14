@@ -1,11 +1,12 @@
 #[macro_use] extern crate rocket;
 
 mod routes;
-use routes::auth::login;
-use routes::auth::logout;
+mod controllers;
+
+use routes::product_routes::get_products_route;
 
 #[launch]
 fn init() -> _ {
     rocket::build()
-        .mount("/", routes![login, logout])
+        .mount("/", routes![get_products_route])
 }

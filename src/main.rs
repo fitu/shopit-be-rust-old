@@ -8,5 +8,5 @@ use routes::product_routes::get_products_route;
 #[launch]
 fn init() -> _ {
     rocket::build()
-        .mount("/", routes![get_products_route])
+        .mount("/api/v1", routes![get_products_route])
 }

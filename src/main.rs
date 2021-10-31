@@ -1,12 +1,5 @@
-#[macro_use] extern crate rocket;
+use shopit_be_rust::rocket_builder;
 
-mod routes;
-mod controllers;
-
-use routes::product_routes::get_products_route;
-
-#[launch]
-fn init() -> _ {
-    rocket::build()
-        .mount("/api/v1", routes![get_products_route])
+fn main() {
+    rocket_builder().launch();
 }
